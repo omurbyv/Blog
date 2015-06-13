@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace OmurBlog.Models
 {
@@ -13,7 +14,6 @@ namespace OmurBlog.Models
             {
                 this.Date = DateTime.Now;
             }
-            
 
             [Required(ErrorMessage = "Enter Title please.")]
             [StringLength(50, MinimumLength = 3, ErrorMessage = "Title should be between 3-50 characters.")]

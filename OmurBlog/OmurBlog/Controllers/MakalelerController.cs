@@ -46,6 +46,7 @@ namespace OmurBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "MakalelerId,Title,Author,Date,ArticleContent")] Makaleler makaleler)
         {
             if (ModelState.IsValid)
@@ -78,6 +79,7 @@ namespace OmurBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "MakalelerId,Title,Author,Date,ArticleContent")] Makaleler makaleler)
         {
             if (ModelState.IsValid)
