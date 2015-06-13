@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OmurBlog.Models;
+using PagedList;
 
 namespace OmurBlog.Controllers
 {
@@ -15,9 +16,9 @@ namespace OmurBlog.Controllers
         private OmurBlogContext db = new OmurBlogContext();
 
         // GET: Makaleler
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            return View(db.makaleler.ToList());
+            return View(db.makaleler.OrderBy(model => model.Date).ToPagedList(page, 5 ));
         }
 
         // GET: Makaleler/Details/5

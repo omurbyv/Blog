@@ -1,4 +1,6 @@
-﻿@model IEnumerable<OmurBlog.Models.Makaleler>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<OmurBlog.Models.Makaleler>
 
 @{
     ViewBag.Title = "Index";
@@ -12,13 +14,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            Title
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Author)
+            Author
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+            Date
         </th>
         <th></th>
     </tr>
@@ -43,3 +45,10 @@
 }
 
 </table>
+
+<div class="pagedList">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.MinimalWithPageCountText)
+</div>
+<script src="~/Content/jquery.js"></script>
+<script src="~/Content/custom.js"></script>
+<script src="~/Content/paginate.js"></script>
